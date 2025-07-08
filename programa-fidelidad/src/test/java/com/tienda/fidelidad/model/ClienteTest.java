@@ -35,6 +35,45 @@ class ClienteTest {
     }
 
     @Test
+    @DisplayName("Crear un cliente con un email vacío debe lanzar una excepción")
+    void testCrearClienteCorreoVacio() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            new Cliente("Jessica Rabbit", "");
+        });
+
+        String expectedMessage = "El formato del correo es inválido.";
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
+
+    @Test
+    @DisplayName("Crear un cliente con un nombre vacío debe lanzar una excepción")
+    void testCrearClienteNombreVacio() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            new Cliente("", "jessica.rabbit@example.com");
+        });
+
+        String expectedMessage = "El formato del nombre es inválido.";
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
+
+    @Test
+    @DisplayName("Crear un cliente con nombre con caracteres especiales debe lanzar una excepción")
+    void testCrearClienteNombreConCaracteresEspeciales() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            new Cliente("Jessica@Rabbit", "jessica.rabbit@example.com");
+        });
+
+        String expectedMessage = "El formato del nombre es inválido.";
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
+
+    @Test
     @DisplayName("Agregar puntos debe actualizar el total de puntos y el nivel del cliente")
     void testAgregarPuntos() {
         Cliente cliente = new Cliente("Jessica Rabbit", "jessica.rabbit@example.com");

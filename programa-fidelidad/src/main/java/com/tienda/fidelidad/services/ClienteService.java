@@ -36,6 +36,16 @@ public final class ClienteService {
     }
 
     /**
+     * Busca y devuelve un cliente por su ID.
+     *
+     * @param id El ID del cliente a buscar.
+     * @return Un Optional que contiene al cliente si se encuentra, o un Optional vacío.
+     */
+    public Optional<Cliente> buscarClientePorId(int id) {
+        return clienteData.findById(id);
+    }
+
+    /**
      * Devuelve una lista con todos los clientes registrados.
      *
      * @return Una lista de objetos Cliente. La lista estará vacía si no hay clientes.

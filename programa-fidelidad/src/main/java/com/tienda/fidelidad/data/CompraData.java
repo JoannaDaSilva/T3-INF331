@@ -12,7 +12,7 @@ public class CompraData {
     private final Map<Integer, Compra> compras = new HashMap<>();
 
     public Compra save(Compra compra) {
-        compras.put(compra.getId(), compra);
+        compras.put(compra.getIdCompra(), compra);
         return compra;
     }
 

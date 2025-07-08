@@ -1,17 +1,19 @@
 package com.tienda.fidelidad.services;
 
-import com.tienda.fidelidad.data.ClienteData;
-import com.tienda.fidelidad.data.CompraData;
-import com.tienda.fidelidad.model.Cliente;
-import com.tienda.fidelidad.model.Compra;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDateTime;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
+import com.tienda.fidelidad.data.ClienteData;
+import com.tienda.fidelidad.data.CompraData;
+import com.tienda.fidelidad.model.Cliente;
+import com.tienda.fidelidad.model.Compra;
 
 class CompraServiceTest {
 
@@ -37,7 +39,7 @@ class CompraServiceTest {
         Compra compraRegistrada = compraService.registrarCompra(eddie.getId(), monto);
 
         assertNotNull(compraRegistrada);
-        assertNotNull(compraRegistrada.getId());
+        assertNotNull(compraRegistrada.getIdCompra());
         assertEquals(eddie.getId(), compraRegistrada.getIdCliente());
         assertEquals(monto, compraRegistrada.getMonto());
     }

@@ -32,7 +32,7 @@ class CompraDataTest {
 
         Compra compraGuardada = compraData.save(nuevaCompra);
 
-        assertEquals(1, compraGuardada.getId());
+        assertEquals(1, compraGuardada.getIdCompra());
         assertEquals(ROGER_RABBIT_ID, compraGuardada.getIdCliente());
         assertEquals(5000.0, compraGuardada.getMonto());
         Optional<Compra> compraEncontrada = compraData.findById(1);
@@ -44,7 +44,7 @@ class CompraDataTest {
     void testFindById() {
         Compra compra = compraData.save(new Compra(1, JESSICA_RABBIT_ID, 1200.0, LocalDateTime.now()));
 
-        Optional<Compra> compraEncontrada = compraData.findById(compra.getId());
+        Optional<Compra> compraEncontrada = compraData.findById(compra.getIdCompra());
 
         assertTrue(compraEncontrada.isPresent());
         assertEquals(1200.0, compraEncontrada.get().getMonto());

@@ -10,10 +10,10 @@ class NivelTest {
     @Test
     @DisplayName("El multiplicador de puntos debe ser el correcto para cada nivel")
     void testMultiplicadorPorNivel() {
-        assertEquals(2.0, Nivel.PLATINO.getMultiplicador(), 0.001);
-        assertEquals(1.5, Nivel.ORO.getMultiplicador(), 0.001);
-        assertEquals(1.2, Nivel.PLATA.getMultiplicador(), 0.001);
-        assertEquals(1.0, Nivel.BRONCE.getMultiplicador(), 0.001);
+        assertEquals(2.0, Nivel.PLATINO.getMultiplicador());
+        assertEquals(1.5, Nivel.ORO.getMultiplicador());
+        assertEquals(1.2, Nivel.PLATA.getMultiplicador());
+        assertEquals(1.0, Nivel.BRONCE.getMultiplicador());
     }
 
     @Test

@@ -1,14 +1,17 @@
 package com.tienda.fidelidad.data;
 
-import com.tienda.fidelidad.modelo.Cliente;
+import java.util.List;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
+import com.tienda.fidelidad.model.Cliente;
 
 class ClienteDataTest {
 
@@ -93,7 +96,7 @@ class ClienteDataTest {
     @DisplayName("deleteById debe eliminar un cliente existente")
     void testDeleteById() {
         Cliente cliente = clienteData.save(new Cliente(1, "Marvin Acme", "marvin.acme@acme.com"));
-        Long id = cliente.getId();
+        int id = cliente.getId();
         
         clienteData.deleteById(id);
 

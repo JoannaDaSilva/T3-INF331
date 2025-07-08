@@ -13,7 +13,7 @@ class ClienteTest {
 
         // Assert (Verificar)
         assertNotNull(cliente);
-        assertEquals(1L, cliente.getId());
+        assertEquals(1, cliente.getId());
         assertEquals("Jessica Rabbit", cliente.getNombre());
         assertEquals("jessica.rabbit@example.com", cliente.getCorreo());
         assertEquals(0, cliente.getPuntos());

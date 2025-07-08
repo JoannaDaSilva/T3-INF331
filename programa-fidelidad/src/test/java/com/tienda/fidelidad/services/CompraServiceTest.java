@@ -2,8 +2,8 @@ package com.tienda.fidelidad.services;
 
 import com.tienda.fidelidad.data.ClienteData;
 import com.tienda.fidelidad.data.CompraData;
-import com.tienda.fidelidad.modelo.Cliente;
-import com.tienda.fidelidad.modelo.Compra;
+import com.tienda.fidelidad.model.Cliente;
+import com.tienda.fidelidad.model.Compra;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

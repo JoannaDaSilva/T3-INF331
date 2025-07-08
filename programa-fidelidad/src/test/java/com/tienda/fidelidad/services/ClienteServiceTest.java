@@ -43,6 +43,29 @@ class ClienteServiceTest {
     }
 
     @Test
+    @DisplayName("buscarClientePorId debe devolver el cliente si existe")
+    void testBuscarClientePorIdExistente() {
+        Cliente clienteGuardado = clienteService.agregarCliente("Benny the Cab", "benny.cab@toontown.com");
+        int idCliente = clienteGuardado.getId();
+
+        Optional<Cliente> clienteEncontrado = clienteService.buscarClientePorId(idCliente);
+
+        assertTrue(clienteEncontrado.isPresent(), "El cliente debería haber sido encontrado.");
+        assertEquals(idCliente, clienteEncontrado.get().getId());
+        assertEquals("Benny the Cab", clienteEncontrado.get().getNombre());
+    }
+
+    @Test
+    @DisplayName("buscarClientePorId debe devolver un Optional vacío si el cliente no existe")
+    void testBuscarClientePorIdNoExistente() {
+        int idInexistente = 999;
+
+        Optional<Cliente> clienteEncontrado = clienteService.buscarClientePorId(idInexistente);
+
+        assertFalse(clienteEncontrado.isPresent(), "No debería encontrarse un cliente con un ID inexistente.");
+    }   
+
+    @Test
     @DisplayName("Agregar un cliente con un correo que ya existe debe lanzar una excepción")
     void testAgregarClienteCorreoExistente() {
         clienteService.agregarCliente("Roger Rabbit", "roger.rabbit@toontown.com");

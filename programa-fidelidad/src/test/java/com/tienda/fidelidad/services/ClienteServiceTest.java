@@ -89,7 +89,7 @@ class ClienteServiceTest {
             clienteService.actualizarCliente(clienteFalso);
         });
 
-        assertEquals("No se puede actualizar. El cliente con ID 999 no existe.", exception.getMessage());
+        assertEquals("No se puede continuar. El cliente con ID 999 no existe.", exception.getMessage());
     }
 
     @Test
